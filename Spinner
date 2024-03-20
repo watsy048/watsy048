@@ -3,30 +3,55 @@
 <head>
     <style>
         #hexagon {
-            width: 100px;
-            height: 55px;
-            background: #64C7CC;
             position: relative;
-            margin: 50px;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
+            width: 300px; 
+            height: 173.21px;
+            background-color: #64C7CC;
+            margin: 86.60px 0;
+            transform: rotate(90deg);
         }
         #hexagon:before, #hexagon:after {
             content: "";
             position: absolute;
-            width: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
+            width: 300px;
+            height: 173.21px;
+            background-color: #64C7CC;
         }
         #hexagon:before {
-            bottom: 100%;
-            border-bottom: 27.5px solid #64C7CC;
+            transform: rotate(60deg);
         }
         #hexagon:after {
-            top: 100%;
-            width: 0;
-            border-top: 27.5px solid #64C7CC;
+            transform: rotate(-60deg);
+        }
+        .image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .image1 {
+            background-image: url('image1.jpg');
+        }
+        .image2 {
+            background-image: url('image2.jpg');
+            transform: rotate(60deg);
+        }
+        .image3 {
+            background-image: url('image3.jpg');
+            transform: rotate(120deg);
+        }
+        .image4 {
+            background-image: url('image4.jpg');
+            transform: rotate(180deg);
+        }
+        .image5 {
+            background-image: url('image5.jpg');
+            transform: rotate(240deg);
+        }
+        .image6 {
+            background-image: url('image6.jpg');
+            transform: rotate(300deg);
         }
         @keyframes rotate {
             from { transform: rotate(0deg); }
@@ -35,12 +60,24 @@
     </style>
 </head>
 <body>
-    <div id="hexagon"></div>
-    <button onclick="rotateHexagon()">Rotate</button>
+    <div id="hexagon">
+        <div class="image image1"></div>
+        <div class="image image2"></div>
+        <div class="image image3"></div>
+        <div class="image image4"></div>
+        <div class="image image5"></div>
+        <div class="image image6"></div>
+    </div>
+    <button onclick="startRotation()">Start Rotation</button>
+    <button onclick="stopRotation()">Stop Rotation</button>
 
     <script>
-        function rotateHexagon() {
-            document.getElementById('hexagon').style.animationName = 'rotate';
+        function startRotation() {
+            document.getElementById('hexagon').style.animation = 'rotate 2s linear infinite';
+        }
+
+        function stopRotation() {
+            document.getElementById('hexagon').style.animation = '';
         }
     </script>
 </body>
